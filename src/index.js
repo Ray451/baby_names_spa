@@ -4,10 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { Provider } from "react-redux";
+import { generateList } from "./store/babyListSlice";
+import store from "./store/store";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+store.dispatch(generateList());
+
 root.render(
   <React.StrictMode>
-    <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
   </React.StrictMode>
 );
 
